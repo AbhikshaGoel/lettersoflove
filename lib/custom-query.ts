@@ -11,6 +11,7 @@ export const PAGE_DATA_QUERY = `
         author {
           node {
             name
+            nickname
           }
         }
         featuredImage {
@@ -53,6 +54,7 @@ export const GET_POST_BY_SLUG = `
       author {
         node {
           name
+          nickname
           avatar {
             url
           }

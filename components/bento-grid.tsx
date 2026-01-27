@@ -56,7 +56,7 @@ const floatAnimation = (delay: number) => ({
 export default function BentoGrid({ categories, recentPosts }: BentoGridProps) {
   return (
     <motion.div
-      className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-5 h-auto md:h-[620px] mt-12"
+      className="max-w-7xl mx-auto px-2 md:px-6 grid grid-cols-1 md:grid-cols-12 gap-5 h-auto md:h-[620px] mt-12"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"

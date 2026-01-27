@@ -17,13 +17,15 @@ export default async function EchoesPage() {
   const categories = data?.categories?.nodes || [];
 
   // 3. Split data for specific sections
-  // First 5 posts for the Split Hero Slider
   const heroPosts = allPosts.slice(0, 5);
-  // Remaining posts for the Story Feed
   const feedPosts = allPosts.slice(5);
 
   return (
-    <div className="min-h-screen font-sans flex flex-col selection:bg-purple-100 selection:text-purple-900 dark:selection:bg-purple-900 dark:selection:text-purple-100">
+    <div
+      // ADDED: overflow-x-hidden and w-full to prevent horizontal scrollbars globally
+      className="min-h-screen w-full overflow-x-hidden font-sans flex 
+    flex-col selection:bg-purple-100 selection:text-purple-900 dark:selection:bg-purple-900 dark:selection:text-purple-100"
+    >
       <main className="grow w-full">
         {/* Pass first 5 posts to the Slider */}
         <SplitHero posts={heroPosts} />
@@ -31,10 +33,7 @@ export default async function EchoesPage() {
         <Hero />
 
         {/* Pass data to Grid */}
-        <BentoGrid
-          categories={categories}
-          recentPosts={allPosts.slice(0, 3)} // Show top 3 titles in Bento
-        />
+        <BentoGrid categories={categories} recentPosts={allPosts.slice(0, 3)} />
 
         {/* Pass older posts to the main feed */}
         <StoryFeed posts={feedPosts} />
