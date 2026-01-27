@@ -19,6 +19,7 @@ export default async function EchoesPage() {
   // 3. Split data for specific sections
   const heroPosts = allPosts.slice(0, 5);
   const feedPosts = allPosts.slice(5);
+  //console.log("posts", heroPosts);
 
   return (
     <div

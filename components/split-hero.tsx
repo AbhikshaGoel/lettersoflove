@@ -71,7 +71,7 @@ export default function SplitHero({ posts }: SplitHeroProps) {
 
     const authorName = post.author.node.name;
     const avatarUrl =
-      post.author.node.avatar?.url ||
+      post.author?.node?.avatar?.url ||
       `https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80`;
 
     return {
@@ -195,10 +195,10 @@ export default function SplitHero({ posts }: SplitHeroProps) {
                           unoptimized={true}
                         />
                         <div className="absolute bottom-0 left-0 w-full p-3 bg-gradient-to-t from-black/80 to-transparent">
-                          <p className="text-white text-xs font-bold truncate">
+                          <p className="text-white text-base font-bold truncate">
                             {story.title}
                           </p>
-                          <p className="text-white/70 text-[10px] uppercase">
+                          <p className="text-white/70 text-xs">
                             {story.authorName}
                           </p>
                         </div>

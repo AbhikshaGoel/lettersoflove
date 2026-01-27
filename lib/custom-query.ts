@@ -1,6 +1,6 @@
 export const PAGE_DATA_QUERY = `
   query GetPageData {
-    # 1. Fetch posts (This part was correct)
+    # 1. Fetch posts
     posts(first: 20, where: { orderby: { field: DATE, order: DESC } }) {
       nodes {
         id
@@ -12,6 +12,10 @@ export const PAGE_DATA_QUERY = `
           node {
             name
             nickname
+            # 👇 ADDED THIS SECTION
+            avatar {
+              url
+            }
           }
         }
         featuredImage {
@@ -29,9 +33,7 @@ export const PAGE_DATA_QUERY = `
       }
     }
     
-    # 2. FIXED: Categories Query
-    # 'orderby' expects an Enum (COUNT), not an object.
-    # We move 'order: DESC' to the sibling argument.
+    # 2. Categories Query
     categories(first: 5, where: { hideEmpty: true, orderby: COUNT, order: DESC }) {
       nodes {
         id
@@ -100,6 +102,14 @@ export const GET_CATEGORY_DATA = `
           slug
           excerpt
           date
+          author {
+            node {
+              name
+              avatar {
+                url
+              }
+            }
+          }
           featuredImage {
             node {
               sourceUrl
