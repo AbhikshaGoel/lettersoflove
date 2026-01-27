@@ -5,7 +5,7 @@ export async function POST(req: NextRequest) {
   const secret = req.nextUrl.searchParams.get("secret");
 
   // Check for a secret token to prevent hackers from crashing your server
-  if (secret !== process.env.MY_SECRET_TOKEN) {
+  if (secret !== process.env.REVALIDATION_SECRET) {
     return NextResponse.json({ message: "Invalid token" }, { status: 401 });
   }
 
